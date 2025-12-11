@@ -88,9 +88,8 @@ body {
     text-transform: uppercase;
 }
 
-/* --- Difficulty Modal Styles (Applies to both modals) --- */
 .modal-backdrop {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -103,7 +102,7 @@ body {
     z-index: 1000;
 }
 
-/* This new class will be toggled by JavaScript */
+
 .modal-backdrop.active {
     display: flex;
 }

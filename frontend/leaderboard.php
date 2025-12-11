@@ -1,6 +1,5 @@
 <?php
-// leaderboard.php (Formerly leaderboard.html)
-require_once __DIR__ . '/backend/config/constants.php';
+require_once __DIR__ . '/../backend/config/constants.php';
 session_name(SESSION_NAME);
 session_start();
 
@@ -43,9 +42,7 @@ if (!isset($_SESSION['user_id'])) {
     </div>
     
     <script>
-        // (Your existing leaderboard Fetch script goes here - same as before)
-        // Ensure you paste the script I provided in the previous "Missing Links" answer
-        // that performs the fetch('backend/get_leaderboard.php') logic.
+     
         document.addEventListener('DOMContentLoaded', function() {
             const subtitle = document.getElementById('leaderboard-difficulty-subtitle');
             const tableBody = document.getElementById('leaderboard-body');
@@ -61,7 +58,7 @@ if (!isset($_SESSION['user_id'])) {
 
             tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center;">Loading scores...</td></tr>';
 
-            fetch(`backend/get_leaderboard.php?difficulty=${difficulty}`)
+            fetch(`../backend/get_leaderboard.php?difficulty=${difficulty}`)
                 .then(response => response.json())
                 .then(data => {
                     tableBody.innerHTML = '';

@@ -1,7 +1,6 @@
 
 const AuthFormController = {
     
-    // --- 1. Properties (Cached View Elements) ---
     loginSection: null,
     signupSection: null,
     toggleLink: null,
@@ -24,11 +23,8 @@ const AuthFormController = {
     // Notification element
     notificationElement: null,
 
-    /**
-     * Initializes the controller.
-     */
+    
     init: function() {
-        // --- 2. Cache DOM Elements ---
         this.loginSection = document.getElementById('login-section');
         this.signupSection = document.getElementById('signup-section');
         this.toggleLink = document.getElementById('toggle-link');
@@ -54,17 +50,15 @@ const AuthFormController = {
             return;
         }
 
-        // --- 3. Bind Event Listeners ---
+        
         this.toggleLink.addEventListener('click', this.toggleForm.bind(this));
         this.loginForm.addEventListener('submit', this.handleLoginSubmit.bind(this));
         this.signupForm.addEventListener('submit', this.handleSignUpSubmit.bind(this));
     },
 
-    /**
-     * Toggles the view between the login and sign-up forms.
-     */
+   
     toggleForm: function() {
-        this.clearNotification(); // Clear any error messages
+        this.clearNotification(); 
         if (this.loginSection.classList.contains('active')) {
             // Switch to Sign Up
             this.loginSection.classList.remove('active');
@@ -82,28 +76,25 @@ const AuthFormController = {
         }
     },
 
-    /**
-     * Handles the submission of the login form.
-     * Uses async/await for cleaner fetch logic.
-     */
+   
     handleLoginSubmit: async function(event) {
         event.preventDefault(); 
         this.clearNotification();
         this.setLoading(this.loginButton, true);
 
-        // 1. Get data from form
+      
         const email = this.loginEmailInput.value;
         const password = this.loginPasswordInput.value;
 
-        // 2. Prepare data for backend
+  
         const postData = {
             email: email,
             password: password
         };
 
         try {
-            // 3. Send data to backend/login.php
-            const response = await fetch('backend/login.php', {
+       
+            const response = await fetch('../backend/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -113,15 +104,15 @@ const AuthFormController = {
 
             const data = await response.json();
 
-            // 4. Handle response
+           
             if (response.ok && data.status === 'success') {
                 this.showNotification(data.data.message || 'Login successful! Redirecting...', 'success');
-                // Redirect to the game page on success
+                
                 setTimeout(() => {
-                    window.location.href = 'mainmanu.php'; // Or dashboard.php, etc.
+                    window.location.href = 'mainmanu.php'; 
                 }, 1000);
             } else {
-                // Show error message from backend
+                
                 this.showNotification(data.message || 'An unknown error occurred.', 'error');
                 this.setLoading(this.loginButton, false);
             }
@@ -133,20 +124,16 @@ const AuthFormController = {
         }
     },
 
-    /**
-     * Handles the submission of the sign-up form.
-     */
+
     handleSignUpSubmit: async function(event) {
         event.preventDefault();
         this.clearNotification();
         this.setLoading(this.signupButton, true);
 
-        // 1. Get data from form
         const username = this.signupUsernameInput.value;
         const email = this.signupEmailInput.value;
         const password = this.signupPasswordInput.value;
 
-        // 2. Prepare data
         const postData = {
             username: username,
             email: email,
@@ -154,8 +141,7 @@ const AuthFormController = {
         };
 
         try {
-            // 3. Send data to backend/signup.php
-            const response = await fetch('backend/signup.php', {
+            const response = await fetch('../backend/signup.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -165,12 +151,9 @@ const AuthFormController = {
 
             const data = await response.json();
 
-            // 4. Handle response
             if (response.ok && data.status === 'success') {
                 this.showNotification('Account created! Please log in.', 'success');
-                // Toggle back to the login form
                 this.toggleForm();
-                // Clear signup form for privacy
                 this.signupForm.reset();
             } else {
                 this.showNotification(data.message || 'An unknown error occurred.', 'error');
@@ -184,40 +167,29 @@ const AuthFormController = {
         }
     },
 
-    /**
-     * Shows a notification message in the UI.
-     * @param {string} message The message to display.
-     * @param {'success'|'error'} type The type of notification.
-     */
+    
     showNotification: function(message, type) {
         const el = this.notificationElement;
         el.textContent = message;
-        el.className = `notification ${type}`; // e.g., "notification success"
+        el.className = `notification ${type}`; 
     },
 
-    /**
-     * Clears any active notification.
-     */
+    
     clearNotification: function() {
         const el = this.notificationElement;
         el.textContent = '';
-        el.className = 'notification'; // Removes .success or .error
+        el.className = 'notification'; 
     },
 
-    /**
-     * Sets the loading state of a button (disables it).
-     * @param {HTMLButtonElement} button The button element.
-     * @param {boolean} isLoading Whether to set to loading or not.
-     */
+    
     setLoading: function(button, isLoading) {
         if (button) {
             button.disabled = isLoading;
-            // You could also change button text, e.g., "Loading..."
+            
         }
     }
 };
 
-// --- 4. Application Entry Point ---
 document.addEventListener('DOMContentLoaded', function() {
     AuthFormController.init();
 });

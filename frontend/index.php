@@ -1,6 +1,6 @@
 <?php
-// index.php (Formerly login.html)
-require_once __DIR__ . '/backend/config/constants.php';
+
+require_once __DIR__ . '/../backend/config/constants.php';
 session_name(SESSION_NAME);
 session_start();
 
@@ -71,6 +71,6 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
     </div>
-    <script src="login.js" defer></script>
+    <script src="../javascript/login.js" defer></script>
 </body>
 </html>

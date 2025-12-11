@@ -1,6 +1,5 @@
 <?php
-// mainmanu.php (Formerly mainmanu.html)
-require_once __DIR__ . '/backend/config/constants.php';
+require_once __DIR__ . '/../backend/config/constants.php';
 session_name(SESSION_NAME);
 session_start();
 
@@ -63,6 +62,6 @@ if (!isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <script src="mainmenu.js" defer></script>
+    <script src="../javascript/mainmenu.js" defer></script>
 </body>
 </html>

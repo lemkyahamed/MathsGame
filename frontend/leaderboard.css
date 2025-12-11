@@ -1,6 +1,3 @@
-/* Styling for leaderboard.html
-  (Reuses many concepts from mainmanu.html for consistency)
-*/
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +15,7 @@ body {
     border-radius: 12px;
     padding: 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 500px; /* Wider for the table */
+    max-width: 500px; 
     width: 100%;
     text-align: center;
 }
@@ -37,7 +34,7 @@ body {
 
 .leaderboard-subtitle {
     color: #7f8c8d;
-    font-size: 1.1em; /* Made subtitle slightly larger */
+    font-size: 1.1em; 
     margin-bottom: 30px;
 }
 
@@ -45,7 +42,7 @@ body {
 .leaderboard-container {
     width: 100%;
     margin-bottom: 30px;
-    overflow-x: auto; /* Allows table to be scrollable on small screens */
+    overflow-x: auto; 
 }
 
 table {
@@ -74,22 +71,22 @@ td {
     color: #333;
 }
 
-/* Add alternating row colors */
+
 tbody tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 
-/* Style the first column (Rank) */
+
 td:first-child, th:first-child {
     text-align: center;
     font-weight: bold;
     color: #3498db;
-    width: 20%; /* Adjusted width */
+    width: 20%; 
 }
-/* Style the third column (Score) */
+
 td:nth-child(3), th:nth-child(3) {
     font-weight: bold;
-    width: 30%; /* Adjusted width */
+    width: 30%; 
 }
 
 
@@ -109,11 +106,11 @@ td:nth-child(3), th:nth-child(3) {
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
     text-decoration: none;
-    box-sizing: border-box; /* Ensures padding doesn't break width */
+    box-sizing: border-box; 
 }
 
 .btn-back-minimal {
-    background-color: #95a5a6; /* Grey for back button */
+    background-color: #95a5a6; 
     color: white;
 }
 .btn-back-minimal:hover {

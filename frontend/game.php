@@ -1,6 +1,6 @@
 <?php
 // game.php (Formerly index.html)
-require_once __DIR__ . '/backend/config/constants.php';
+require_once __DIR__ . '/../backend/config/constants.php';
 session_name(SESSION_NAME);
 session_start();
 
@@ -79,6 +79,6 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <script src="index.js"></script>
+        <script src="../javascript/index.js"></script>
     </body>
 </html>
