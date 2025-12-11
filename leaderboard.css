@@ -1,0 +1,122 @@
+/* Styling for leaderboard.html
+  (Reuses many concepts from mainmanu.html for consistency)
+*/
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.minimal-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Wider for the table */
+    width: 100%;
+    text-align: center;
+}
+
+.leaderboard-logo {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.leaderboard-title {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.leaderboard-subtitle {
+    color: #7f8c8d;
+    font-size: 1.1em; /* Made subtitle slightly larger */
+    margin-bottom: 30px;
+}
+
+/* Leaderboard Table Styles */
+.leaderboard-container {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow-x: auto; /* Allows table to be scrollable on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background-color: #f4f6f8;
+    color: #34495e;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+td {
+    color: #333;
+}
+
+/* Add alternating row colors */
+tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the first column (Rank) */
+td:first-child, th:first-child {
+    text-align: center;
+    font-weight: bold;
+    color: #3498db;
+    width: 20%; /* Adjusted width */
+}
+/* Style the third column (Score) */
+td:nth-child(3), th:nth-child(3) {
+    font-weight: bold;
+    width: 30%; /* Adjusted width */
+}
+
+
+/* Back Button */
+.btn-minimal {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+.btn-back-minimal {
+    background-color: #95a5a6; /* Grey for back button */
+    color: white;
+}
+.btn-back-minimal:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-1px);
+}

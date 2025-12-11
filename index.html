@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Maths Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+        <!-- Using the newly generated minimalist CSS -->
+        <link rel="stylesheet" href="index.css">
+    </head>
+    
+    <body>
+        <div id="heading">
+            <!-- Using the clean title style -->
+            <h1>THE MATH CHALLENGE</h1>
+        </div>
+        
+        <div id="container">
+            <!-- Top bar container for consistent layout (positioned via CSS) -->
+            <div id="top-bar">
+                 <div id="hearts" class="stat-box" style="display:none;">
+                    ❤️ Lives: <span id="heartcount">3</span>
+                </div>
+                
+                <div id="highScore" class="stat-box" style="display:none;">
+                    🏆 High Score: <span id="highScoreValue">0</span>
+                </div>
+                
+                <div id="score" class="stat-box">
+                    Score: <span id="scorevalue">0</span>
+                </div>
+            </div>
+
+            <!-- Feedback boxes are now centered within the container via CSS -->
+            <div id="correct" style="display:none;">
+                Correct ✅
+            </div>
+            <div id="wrong" style="display:none;">
+                Try again ❌
+            </div>
+            
+            <div id="question">
+                <!-- Question goes here -->
+            </div>
+            
+            <div id="instruction">
+                Click on the correct answer
+            </div>
+            
+            <div id="choices">
+                <div id="box1" class="box"></div>
+                <div id="box2" class="box"></div>
+                <div id="box3" class="box"></div>
+                <div id="box4" class="box"></div>
+            </div>
+            
+            <div id="startreset">
+                Main Menu
+            </div>
+            
+            <div id="timeremaining" style="display:none;">
+                <!-- The value '60' here is just a placeholder; 
+                     it will be updated by index.js based on difficulty -->
+                Time remaining: <span id="timeremainingvalue">60</span> sec
+            </div>
+            
+            <!-- Updated gameOver container -->
+            
+                <div id="gameOver" style="display:none;">
+                    <button id="closeGameOver" class="close-btn">&times;</button>
+                    <div id="gameOverContent">
+                        <!-- Game Over message inserted here by JavaScript -->
+                    </div>
+                </div>
+            
+        </div>
+
+        <!-- Heart Challenge Modal (structure unchanged, appearance updated by CSS) -->
+        <!-- This will now be centered correctly by show() in index.js -->
+        <div id="heartChallengeModal" style="display:none;">
+            <div id="challengeContent">
+                <h2>❤️ Life Saver Challenge! ❤️</h2>
+                <p>Answer this puzzle to save your life!</p>
+                <img id="challengeImage" src="placeholder.png" alt="Challenge Image">
+                <input type="number" id="challengeInput" placeholder="Enter the solution">
+                <button id="submitChallenge">Submit Answer</button>
+                <p id="challengeMessage"></p>
+            </div>
+        </div>
+
+        <!-- **** THIS IS THE MISSING HTML **** -->
+        <!-- NEW: Confirmation Modal for Quitting -->
+        <div id="confirmQuitModal" style="display:none;">
+            <div id="confirmQuitContent">
+                <h2>Quit Game?</h2>
+                <p>Are you sure you want to leave? Your score will be lost.</p>
+                <div class="confirm-buttons">
+                    <button id="confirmQuitYes" class="btn-quit btn-quit-yes">Yes, Quit</button>
+                    <button id="confirmQuitNo" class="btn-quit btn-quit-no">No, Cancel</button>
+                </div>
+            </div>
+        </div>
+        <!-- **** END OF MISSING HTML **** -->
+
+        <script src="index.js"></script>
+    </body>
+</html>

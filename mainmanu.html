@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Maths Quiz - Minimal Welcome</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    
+    <link rel="stylesheet" href="mainmenu.css">
+</head>
+
+<body>
+    <div class="minimal-box">
+        <div class="minimal-logo">
+            🧮
+        </div>
+        
+        <div class="minimal-title">
+            The Math Challenge
+        </div>
+        <div class="minimal-subtitle">
+            Timed arithmetic training for a sharper mind.
+        </div>
+        
+        <button data-modal-target="difficultyModal" class="btn-minimal btn-start-minimal">
+            ▶️ START GAME
+        </button>
+
+        <div class="minimal-divider">SEE HIGH SCORES</div>
+
+        <button data-modal-target="leaderboardDifficultyModal" class="btn-minimal btn-leaderboard-minimal">
+            🏆 GLOBAL LEADERBOARD
+        </button>
+        
+        <div class="minimal-divider">LOGOUT ACCOUNT</div>
+
+        <button class="btn-minimal btn-logout-minimal" onclick="window.location.href='login.html'">
+            🔒 LOGOUT
+        </button>
+        
+    </div>
+
+    <div id="difficultyModal" class="modal-backdrop">
+        <div class="modal-content">
+            <button data-modal-close class="modal-close-btn">&times;</button>
+            <div class="modal-title">Choose Difficulty</div>
+            
+            <a href="index.html?difficulty=easy" class="btn-difficulty btn-easy">
+                Easy (60 Sec)
+            </a>
+            <a href="index.html?difficulty=medium" class="btn-difficulty btn-medium">
+                Medium (90 Sec)
+            </a>
+            <a href="index.html?difficulty=hard" class="btn-difficulty btn-hard">
+                Hard (120 Sec)
+            </a>
+        </div>
+    </div>
+
+    <div id="leaderboardDifficultyModal" class="modal-backdrop">
+        <div class="modal-content">
+            <button data-modal-close class="modal-close-btn">&times;</button>
+            <div class="modal-title">View Leaderboard</div>
+            
+            <a href="leaderboard.html?difficulty=easy" class="btn-difficulty btn-easy">
+                Easy Scores
+            </a>
+            <a href="leaderboard.html?difficulty=medium" class="btn-difficulty btn-medium">
+                Medium Scores
+            </a>
+            <a href="leaderboard.html?difficulty=hard" class="btn-difficulty btn-hard">
+                Hard Scores
+            </a>
+        </div>
+    </div>
+
+    <script src="mainmenu.js" defer></script>
+</body>
+</html>

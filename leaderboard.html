@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Maths Challenge - Leaderboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+
+<body>
+    <div class="minimal-box">
+        <div class="leaderboard-logo">
+            🏆
+        </div>
+        
+        <div class="leaderboard-title">
+            Global Leaderboard
+        </div>
+        <div class="leaderboard-subtitle" id="leaderboard-difficulty-subtitle">
+            Loading ranks...
+        </div>
+
+        <div class="leaderboard-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Score</th>
+                        </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    </tbody>
+            </table>
+        </div>
+        
+        <button onclick="window.location.href='mainmanu.html'" class="btn-minimal btn-back-minimal">
+            ⬅️ Back to Menu
+        </button>
+    </div>
+    
+    <script>
+        // Wait for the page to load
+        document.addEventListener('DOMContentLoaded', function() {
+            const subtitle = document.getElementById('leaderboard-difficulty-subtitle');
+            const tableBody = document.getElementById('leaderboard-body');
+
+            // Get difficulty from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const difficulty = urlParams.get('difficulty') || 'easy'; // Default to 'easy'
+
+            // --- UI Styling for Difficulty ---
+            let difficultyTitle = difficulty.charAt(0).toUpperCase() + difficulty.slice(1); // Capitalize first letter
+            
+            // Set Text
+            subtitle.textContent = `${difficultyTitle} Difficulty`;
+            subtitle.style.fontWeight = 'bold';
+
+            // Set Color based on difficulty
+            if (difficulty === 'easy') {
+                subtitle.style.color = '#2ecc71'; // Green
+            } else if (difficulty === 'medium') {
+                subtitle.style.color = '#f39c12'; // Orange
+            } else if (difficulty === 'hard') {
+                subtitle.style.color = '#e74c3c'; // Red
+            }
+
+            // Show temporary loading state
+            tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#7f8c8d;">Loading scores...</td></tr>';
+
+            // --- NEW: Fetch Real Data from Backend ---
+            fetch(`backend/get_leaderboard.php?difficulty=${difficulty}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Clear loading message
+                    tableBody.innerHTML = '';
+
+                    if (data.status === 'success' && data.data.length > 0) {
+                        // Loop through the data and create table rows
+                        data.data.forEach(row => {
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td>${row.rank}</td>
+                                <td>${row.player}</td>
+                                <td>${row.score}</td>
+                            `;
+                            tableBody.appendChild(tr);
+                        });
+                    } else {
+                        // Show a message if no scores exist yet
+                        tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center; padding:20px;">No scores yet! Be the first to play.</td></tr>';
+                    }
+                })
+                .catch(err => {
+                    console.error("Error loading leaderboard:", err);
+                    tableBody.innerHTML = '<tr><td colspan="3" style="text-align:center; color:#e74c3c;">Error loading leaderboard. Please try again.</td></tr>';
+                });
+        });
+    </script>
+
+</body>
+</html>

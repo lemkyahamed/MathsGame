@@ -1,0 +1,463 @@
+/* Reset and Overall Theme */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Minimalist Light Background (from Design 2) */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue/grey */
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+#heading {
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Main Game Container */
+#container {
+    width: 90%;
+    max-width: 500px; /* Max width to mimic the welcome/login box */
+    background-color: white;
+    border: none;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 12px;
+    /* Soft shadow to match minimalist theme */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    /* Ensure internal items are properly placed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Top Stats (Lives, High Score, Score) */
+.stat-box {
+    background-color: white;
+    border-radius: 8px;
+    color: #333; 
+    padding: 10px 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: -20px; /* Position above the container */
+    left: 0;
+    padding: 0 10px;
+}
+
+/* Specific Stat Colors (Minimalist Palette) */
+#hearts {
+    background-color: #e74c3c; /* Red for lives */
+    color: white;
+}
+#score {
+    background-color: #f1c40f; /* Yellow/Gold for score */
+    color: #333;
+}
+#highScore {
+    background-color: #3498db; /* Blue for high score */
+    color: white;
+}
+
+/* Feedback Boxes */
+#correct, #wrong {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#correct {
+    background-color: #2ecc71; /* Green success */
+    color: white;
+}
+
+#wrong {
+    background-color: #e74c3c; /* Red failure */
+    color: white;
+}
+
+/* Question Area */
+#question {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+    color: #2c3e50;
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    margin: 40px auto 20px auto;
+    background-color: #ecf0f1; /* Light grey background */
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#instruction {
+    font-size: 1em;
+    color: #7f8c8d;
+    margin: 10px auto 20px auto;
+    text-align: center;
+    line-height: 1.5;
+    box-shadow: none;
+}
+
+/* Choices/Answer Boxes */
+#choices {
+    width: 100%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for clean layout */
+    gap: 20px;
+}
+
+.box {
+    width: 100%;
+    height: 80px;
+    background-color: #3498db; /* Blue answer box */
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #2980b9; /* 3D effect with blue tone */
+    text-align: center;
+    line-height: 80px;
+    position: relative;
+    transition: all 0.1s;
+}
+
+.box:hover {
+   background-color: #5dade2;
+   box-shadow: 0 4px 0px #2980b9;
+}
+
+.box:active {
+    box-shadow: 0 0 0px #2980b9; 
+    top: 4px; /* Simulates press down */
+}
+
+/* Start/Reset Button */
+#startreset {
+    width: 80%;
+    max-width: 200px;
+    padding: 15px;
+    background-color: #e67e22; /* Orange button (Primary Action) */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 30px auto 10px auto;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 0px #d35400; 
+    text-align: center;
+    position: relative;
+    transition: all 0.1s;
+}
+
+#startreset:hover {
+   background-color: #f1964d;
+   box-shadow: 0 4px 0px #d35400;
+}
+
+#startreset:active {
+    box-shadow: 0 0 0px #d35400; 
+    top: 4px;
+}
+
+/* Timer Remaining */
+#timeremaining {
+    width: 180px;
+    padding: 10px;
+    text-align:center;
+    background-color: #f1c40f; 
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+
+#gameoverblur{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Darker backdrop */
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+
+}
+
+
+/* Game Over */
+#gameOver {
+    height: 90%;
+    width: 90%;
+    max-width: 450px;
+    background-color: rgba(229, 229, 229, 0.95); /* Light, subtle overlay */
+    color: #2c3e50;
+    font-size: 1.8em;
+    text-align: center;
+    text-transform: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* This needs to be 'flex' to work, which JS now handles */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+}
+
+#gameOver p {
+    margin: 10px 0;
+}
+
+/* Heart Challenge Modal (Minimalist update) */
+#heartChallengeModal {
+    position:fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    /* This needs to be 'flex' to work, which JS now handles */
+    display: none; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+#challengeContent {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    /* The parent is centered, but we ensure content respects that */
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+/* NEW FIX: Explicitly center and style the H2 title */
+#challengeContent h2 {
+    text-align: center; 
+    margin: 0 0 10px 0; /* Clean up vertical spacing */
+    color: #e74c3c; /* Match the red heart color */
+    font-weight: 600;
+}
+
+#challengeImage {
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto; /* Centered Image */
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: block; /* Important for centering with margin: auto */
+}
+
+/* CENTERING FIX FOR INPUT AND BUTTON */
+#challengeInput, #submitChallenge {
+    display: block; 
+    width: 90%; 
+    margin: 10px auto; /* Centers the block-level elements */
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+/* Input-specific styles */
+#challengeInput {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+#challengeInput:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+
+/* Button-specific styles */
+#submitChallenge {
+    background-color: #2ecc71; /* Green submit button */
+    box-shadow: 0 4px 0px #27ae60;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s;
+}
+
+#submitChallenge:hover {
+    background-color: #4cd484;
+}
+
+#submitChallenge:active {
+    box-shadow: 0 0 0px #27ae60; 
+    top: 4px;
+}
+
+/* Challenge message (e.g., "Correct!" or "Wrong!") */
+#challengeMessage {
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* NEW: Close Button Style */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em; /* Make the 'X' large */
+    font-weight: bold;
+    color: #7f8c8d; /* Muted color */
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    z-index: 101; /* Ensure it's above content */
+}
+
+.close-btn:hover {
+    color: #2c3e50; /* Darker on hover */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 450px) {
+    #heading { padding-top: 20px; }
+    #container { margin: 10px auto; padding: 20px; }
+    #question { font-size: 3em; height: 100px; line-height: 100px;}
+    .box { height: 60px; line-height: 60px; font-size: 1.2em; }
+    #choices { gap: 10px; }
+}
+
+/* --- Confirmation Modal Styles --- */
+
+#confirmQuitModal {
+    position:fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    display: none; /* Handled by JS */
+    align-items: center; 
+    justify-content: center; 
+}
+
+#confirmQuitContent {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+#confirmQuitContent h2 {
+    text-align: center; 
+    margin: 0 0 10px 0;
+    color: #2c3e50; /* Dark title */
+    font-weight: 600;
+}
+
+#confirmQuitContent p {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.btn-quit {
+    width: 45%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.1s;
+}
+
+.btn-quit-yes {
+    background-color: #e74c3c; /* Red */
+    color: white;
+    box-shadow: 0 4px 0px #c0392b;
+}
+.btn-quit-yes:hover {
+    background-color: #f16d5f;
+}
+.btn-quit-yes:active {
+    box-shadow: 0 0 0px #c0392b;
+    top: 4px;
+}
+
+.btn-quit-no {
+    background-color: #3498db; /* Blue */
+    color: white;
+    box-shadow: 0 4px 0px #2980b9;
+}
+.btn-quit-no:hover {
+    background-color: #5dade2;
+}
+.btn-quit-no:active {
+    box-shadow: 0 0 0px #2980b9;
+    top: 4px;
+}

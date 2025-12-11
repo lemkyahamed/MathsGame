@@ -1,0 +1,169 @@
+/* All CSS rules are moved to a separate file for high cohesion */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.minimal-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.minimal-logo {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.minimal-title {
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.minimal-subtitle {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 30px;
+}
+
+.btn-minimal {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.btn-start-minimal {
+    background-color: #3498db;
+    color: white;
+}
+.btn-start-minimal:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.btn-logout-minimal {
+    background-color: #e62c22;
+    color: white;
+}
+.btn-logout-minimal:hover {
+    background-color: #d30b00;
+    transform: translateY(-1px);
+}
+
+.btn-leaderboard-minimal {
+    background-color: #2ecc71;
+    color: white;
+}
+.btn-leaderboard-minimal:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}
+
+.minimal-divider {
+    color: #bdc3c7;
+    margin: 20px 0;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+/* --- Difficulty Modal Styles (Applies to both modals) --- */
+.modal-backdrop {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* This new class will be toggled by JavaScript */
+.modal-backdrop.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-title {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #7f8c8d;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+.modal-close-btn:hover {
+    color: #2c3e50;
+}
+
+.btn-difficulty {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: white;
+    display: block;
+    box-sizing: border-box;
+}
+
+.btn-easy { background-color: #2ecc71; }
+.btn-easy:hover { background-color: #27ae60; transform: translateY(-1px); }
+
+.btn-medium { background-color: #f39c12; }
+.btn-medium:hover { background-color: #e67e22; transform: translateY(-1px); }
+
+.btn-hard { background-color: #e74c3c; }
+.btn-hard:hover { background-color: #c0392b; transform: translateY(-1px); }
