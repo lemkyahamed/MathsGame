@@ -118,7 +118,7 @@ const AuthFormController = {
                 this.showNotification(data.data.message || 'Login successful! Redirecting...', 'success');
                 // Redirect to the game page on success
                 setTimeout(() => {
-                    window.location.href = 'mainmanu.html'; // Or dashboard.php, etc.
+                    window.location.href = 'mainmanu.php'; // Or dashboard.php, etc.
                 }, 1000);
             } else {
                 // Show error message from backend

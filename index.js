@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
             show("confirmQuitModal");
         } else {
             // If game is not playing (e.g., on game over screen), just go to main menu
-            window.location.href = "mainmanu.html";
+            window.location.href = "mainmanu.php";
         }
     }
 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Handle "Yes, Quit" button in the confirmation modal
     document.getElementById("confirmQuitYes").onclick = function() {
-        window.location.href = "mainmanu.html";
+        window.location.href = "mainmanu.php";
     }
 
     // Handle "No, Cancel" button in the confirmation modal

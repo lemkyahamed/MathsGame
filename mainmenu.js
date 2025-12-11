@@ -80,6 +80,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            // Call the backend to destroy session
+            fetch('backend/logout.php')
+                .then(response => {
+                    // Redirect to login page regardless of response
+                    window.location.href = 'index.php';
+                })
+                .catch(error => {
+                    console.error('Logout error:', error);
+                    window.location.href = 'index.php';
+                });
+        });
+    }
+
     // --- Initialize All Behaviors ---
     initModalTriggers();
     initModalCloseButtons();
